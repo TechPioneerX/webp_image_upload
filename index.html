@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>縮小したWebP画像</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1 class="mt-5">画像アップロード</h1>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="image">アップロードする画像を選択してください:</label>
+      <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+    <button type="submit" class="btn btn-primary">アップロード</button>
+  </form>
+  <div id="result" class="mt-5"></div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#uploadForm').on('submit', function (e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+
+      $.ajax({
+        url: 'upload.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          $('#result').html(data);
+        },
+        error: function () {
+          alert('ファイルのアップロード中にエラーが発生しました。');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

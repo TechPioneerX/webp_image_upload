@@ -1,0 +1,41 @@
+# Laravel specific
+.env
+.env.backup
+.phpunit.result.cache
+vendor/
+node_modules/
+
+# Homestead
+Homestead.yaml
+Homestead.json
+
+# Composer
+composer.phar
+/vendor/
+
+# NPM
+npm-debug.log
+/node_modules/
+
+# Testing
+/phpunit.xml
+
+# PhpStorm
+.idea/
+*.iml
+
+# Mac OSX
+.DS_Store
+
+# Laravel Mix
+/public/mix-manifest.json
+/public/mix/
+
+# Laravel Telescope
+/storage/*.gitignore
+/storage/*.keys
+
+# Laravel Tinker
+/.psysh.php
+
+/uploads/*
